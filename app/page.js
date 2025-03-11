@@ -52,9 +52,15 @@ export default function MemeDexDashboard() {
             <tbody>
               {trades.map((trade, index) => (
                 <tr key={index} className="border-b border-gray-700">
-                  <td className="p-3"><Link href={`./trades/tokens/${trade.Arguments[0].Value.address}`}>{trade.Arguments[0].Value.address}</Link></td> {/* Currency Address and User Address are made hyper Link using <Link> tag*/}
+                  <td className="p-3">
+                    <Link href={`./trades/tokens/${trade.Arguments[0].Value.address}`}>
+                      {trade.Arguments[0].Value.address /* Currency Address and User Address are made hyper Link using <Link> tag */} 
+                    </Link>
+                  </td>
                   <td className="p-3"><Link href={`./trades/trader/${trade.Arguments[1].Value.address}`}>{trade.Arguments[1].Value.address}</Link></td>
-                  <td className="p-3">{(parseFloat(trade.Arguments[2].Value.bigInteger)/10e18).toFixed(12)} BNB</td> {/* Conversion from BigNumber to Decimals */}
+                  <td className="p-3">
+                    {(parseFloat(trade.Arguments[2].Value.bigInteger)/10e18).toFixed(12)} BNB {/* Conversion from BigNumber to Decimals */}
+                  </td>
                   <td className="p-3">{(parseFloat(trade.Arguments[3].Value.bigInteger)/10e18).toFixed(2)}</td>
                 </tr>
               ))}
