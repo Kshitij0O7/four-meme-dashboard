@@ -18,7 +18,7 @@ export default function TraderTrades() {
 
     async function fetchTrades() {
       try {
-        const data = await getUserTrades();
+        const data = await getUserTrades(trader);
         // const data = await response.json();
 
         // Separate Buys and Sells

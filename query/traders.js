@@ -1,4 +1,4 @@
-const traderData = JSON.stringify({
+const traderData = (trader) => JSON.stringify({
     query: `{
         EVM(dataset: combined, network: bsc) {
             buys: Transfers(
@@ -8,7 +8,7 @@ const traderData = JSON.stringify({
                 To: { is: "0x5c952063c7fc8610ffdb798152d69f0b9550762b" }
                 }
                 Transfer: {
-                Receiver: { is: "0xf0C66cc94c7568F63d421be93eBdb1Ce7d163c74" }
+                Receiver: { is: "${trader}" }
                 }
             }
             ) {

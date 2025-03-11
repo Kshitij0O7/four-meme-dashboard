@@ -16,7 +16,7 @@ export default function CurrencyTrades() {
 
     async function fetchTrades() {
       try {
-        const data = await getTokenTrades();
+        const data = await getTokenTrades(currencyAddress);
 
         setTrades(data);
       } catch (error) {

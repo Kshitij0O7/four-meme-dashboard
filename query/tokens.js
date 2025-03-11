@@ -1,8 +1,8 @@
-const tokenData = JSON.stringify({
+const tokenData = (currencyAddress) => JSON.stringify({
     query: `{
         EVM(dataset: combined, network: bsc) {
             Events(
-            where: {Log: {Signature: {Name: {is: "TokenSale"}}}, Arguments: {includes: {Value: {Address: {is: "0xfe6edde870ff03c039cafc4dba96533acc34a19f"}}}}}
+            where: {Log: {Signature: {Name: {is: "TokenSale"}}}, Arguments: {includes: {Value: {Address: {is: "${currencyAddress}"}}}}}
             orderBy: {descending: Block_Time}
             ) {
             Log {

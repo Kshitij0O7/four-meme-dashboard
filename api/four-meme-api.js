@@ -23,15 +23,15 @@ const getLatestTrades = async () => {
     return latestTrades;
 }
 
-const getUserTrades = async () => {
-  config.data = traderData;
+const getUserTrades = async (trader) => {
+  config.data = traderData(trader);
   const response = await axios.request(config);
   const latestUserTrades = response.data.data.EVM;
   return latestUserTrades;
 }
 
-const getTokenTrades = async () => {
-  config.data = tokenData;
+const getTokenTrades = async (currencyAddress) => {
+  config.data = tokenData(currencyAddress);
   const response = await axios.request(config);
   const latestTokenTrades = response.data.data.EVM.Events;
   return latestTokenTrades;
